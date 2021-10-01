@@ -1,8 +1,8 @@
 const config =  {
     basepath: process.env.BASE_PATH || 'scripts/',
     regex: '(.sh)$',
-    user: 'apoio',
-    password: 'talend',
+    user: 'sa',
+    password: 'sa',
     notification: {
         before: {
             url: 'https://bananaphone.free.beeceptor.com/before'
