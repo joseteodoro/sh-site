@@ -1,0 +1,58 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Bootstrap, from Twitter
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z", crossorigin="anonymous")
+    //- script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js", integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV", crossorigin="anonymous")
+    style(type='text/css').
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 600px;
+      }
+      #menu {
+        width: 60%;
+        height: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .container {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+      }
+      .nav-item {
+        margin-left: 10px;
+      }
+  body
+    div(class="container")
+      nav(id="menu", class="navbar navbar-expand-lg navbar-light bg-light")
+        div(class="collapse navbar-collapse" id="navbarSupportedContent")
+          ul(class="navbar-nav mr-auto")
+            li(class="nav-item btn btn-link")
+              a(href="/jobs") jobs
+            li(class="nav-item btn btn-link")
+              a(href="/jobs/history") history
+      //- div()
+      //-   span(class="alert alert-primary")
+      //-     a(href="/jobs") jobs
+      //-   span(class="alert alert-primary")
+      //-     a(href="/jobs/history") history
+      div(id="content")
+        - var values = found;
+        form(action="/jobs/run", method="post")
+          ul(class="list-group")
+          each val in values
+            li(class="list-group-item")
+              div
+                input(type="radio", name="cmd", value=`${val}`)
+                label #{val}
+          input(type="submit")

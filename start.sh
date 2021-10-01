@@ -1,0 +1,1 @@
+nvm install && npm i && npm start
